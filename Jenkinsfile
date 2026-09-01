@@ -23,10 +23,10 @@ node
   {
    sh "${mavenHome}/bin/mvn clean package"
   }
- /*  stage('SQ REPORT')
+   stage('SQ REPORT')
   {
    sh "${mavenHome}/bin/mvn sonar:sonar"
-  } */
+  } 
   stage('Deploy Artifact')
   {
    sh "${mavenHome}/bin/mvn deploy"
