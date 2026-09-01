@@ -6,14 +6,14 @@ node
    //     /var/lib/jenkins/tools/hudson.tasks.Maven_MavenInstallation/maven-3.9.16/bin
   echo "git JOB Name: ${env.JOB_NAME}"
   echo "build number: ${env.BUILD_NUMBER}"
-  def mavenHome=tool name: "maven-3.9.16"
+  def mavenHome=tool name: "Maven"
   
   try
   {
      stage('git checkout')
   {
        notifyBuild('STARTED')
-      git branch: 'master', url: 'https://github.com/kkdevopsb10/maven-webapplication-project-kkfunda.git'
+      git branch: 'main', url: 'https://github.com/devOps-lasya/maven-webapplication-project.git'
   }
   stage('compile')
   {
@@ -40,7 +40,7 @@ node
 
       curl -u kk:password \
 --upload-file /var/lib/jenkins/workspace/scripted-way-PL-1/target/maven-web-application.war \
-"http://13.235.77.122:8080/manager/text/deploy?path=/maven-web-application&update=true"
+"http://http://13.204.75.85:8080/manager/text/deploy?path=/maven-web-application&update=true"
           
         """
     }
@@ -81,7 +81,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
   }
 
   // Send notifications
-  slackSend (color: colorCode, message: summary, channel: '#airtel-project')
+  slackSend (color: colorCode, message: summary, channel: '#all-lasya')
   
 }
 
