@@ -4,7 +4,7 @@ pipeline
   agent any
   tools
   {
-    maven "maven-3.9.16"
+    maven "maven"
   }
   stages
   {
